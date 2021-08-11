@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  # resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
   resources :stories
   root 'home#index'
-  resources :users, only: [:new, :create, :show]
+  get 'home/index'
+  get 'sessions/new'
+  get 'users/sign_up', to: 'users#new'
+  post 'users', to: 'users#create'
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -2,7 +2,7 @@
 
 <%= flash.now[:notice] if flash.now[:notice] %>
 
-<%= form_with url: session_path, local: true do |f| %>
+<%= form_with(model: @user, local: true) do |f| %>
     <div class="field">
         <%= f.label :email %>
         <%= f.email_field :email, placeholder: "Enter your email", required: true %>
@@ -15,3 +15,4 @@
         <%= f.submit 'Sign In' %>
     </div>
 <% end %>
+

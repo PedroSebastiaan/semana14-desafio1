@@ -1,7 +1,7 @@
-<%= current_user ? "Hi #{current_user.name}!, how're you" : "My friend, log in please." %>
-
-<% if current_user %>
-    <%= link_to 'Log out', session_path(current_user), method: :delete %>
-<% else %>  
-    <%= link_to 'Log in', new_session_path %>
+<% if logged_in? %>
+    <%= "Hi #{current_user.name}!, how're you" %>
+<% else %>
+    <%= "My friend, log in please." %>
 <% end %>
+
+
