@@ -2,13 +2,18 @@ class UsersController < ApplicationController
     # before_action :set_user, only: %i[ show edit update destroy ]
 
     def new
-        @user = User.new
+            @user = User.new
     end
     
     def create
-        @user = User.create(user_params)
-        session[:user_id] = @user.id
-        redirect_to root_path
+        @user = User.find_by(email: params[:user][:email])
+        if @user.present? != true
+            @user = User.create(user_params)
+            session[:user_id] = @user.id
+            redirect_to root_path
+        else 
+            redirect_to users_sign_up_path, notice: "This email is already taken."
+        end
         # respond_to do |format|
         #     if @user.save
         #         format.html { redirect_to root_path, notice: "User was successfully created." }
