@@ -1,18 +1,6 @@
 <h1>Sign In</h1>
 
-<%= flash.now[:notice] if flash.now[:notice] %>
-
 <%= form_with(model: @user, url: sessions_path, local: true) do |f| %>
-    <% if @user.errors.any? %>
-        <div id = 'error_explanation'>
-            <h2>You can'n sign in for:</h2>
-            <ul>
-                <% @user.errors.full_messages.each do |msg|%>
-                    <li><%= msg %></li>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
     <div class="field">
         <%= f.label :email %>
         <%= f.email_field :email, placeholder: "Enter your email", required: true %>
