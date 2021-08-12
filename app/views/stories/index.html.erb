@@ -7,6 +7,12 @@
   </div>
 </div>
 
+<% if logged_in? %>
+    <%= "Hi #{current_user.name}!, how're you" %>
+<% else %>
+    <%= "My friend, log in please." %>
+<% end %>
+
 <div class="row">
   <% @stories.reverse.each do |story| %>
     <div class="col-sm-6 col-md-4">
