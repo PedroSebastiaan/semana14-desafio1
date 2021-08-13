@@ -1,4 +1,6 @@
-<h1>Your profile <%= "#{current_user.name}" %></h1>
+<div class="container text-center">
+    <h1>Your profile <%= "#{current_user.name}" %></h1>
+</div>
 
 <div class="row">
     <% @stories.reverse.each do |story| %>
