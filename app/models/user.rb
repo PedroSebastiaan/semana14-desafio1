@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :stories dependent: :destroy
+    has_many :stories, dependent: :destroy
     # attr_accessor :password_digest, :password_confirmation
     # validates :email, presence: true, uniqueness: { case_sensitive: true }
     # validates :name, presence: true
